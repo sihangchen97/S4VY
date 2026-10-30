@@ -16,9 +16,6 @@ import os, glob, json, re, numpy as np, torch
 from PIL import Image
 from .insscene_dataset import InsSceneDataset
 
-import sys
-_VG = os.environ.get("VGGT_OMEGA_ROOT", "/PATH/TO/codebase/vggt-omega")
-if _VG not in sys.path: sys.path.insert(0, _VG)
 from vggt_omega.utils.load_fn import _balanced_target_shape   # official balanced resize
 
 # Dataset roots. Override each with the matching env var; see docs/DATA.md for what belongs where.

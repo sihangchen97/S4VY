@@ -17,3 +17,6 @@ wandb/
 *.pth
 *.ckpt
 *.log
+# pixi environments
+.pixi/*
+!.pixi/config.toml

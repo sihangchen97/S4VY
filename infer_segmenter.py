@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 """Dump segmenter predictions as per-clip idmap (S,H,W)+scores on the SAME exported frames the baselines used,
 so paper-aligned metrics (T-mIoU/T-SR/J&F via score_metrics.py) compare segmenter vs baselines apples-to-apples."""
-import argparse, os, sys, glob, numpy as np
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-os.environ.setdefault("VGGT_OMEGA_ROOT", "/PATH/TO/codebase/vggt-omega")
+import argparse, os, glob, numpy as np
 import torch
 from PIL import Image
 from segomega.models import SegOmega

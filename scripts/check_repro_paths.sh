@@ -35,7 +35,6 @@ common() {
   need_dir SEG4D_REPO
   need_dir DATA_ROOT
   need_dir CKPT_ROOT
-  need_dir VGGT_OMEGA_ROOT
   need_file VGGT_OMEGA_CKPT
   need_dir CONDA_ROOT
   need_file CONTAINER_IMAGE
@@ -56,7 +55,7 @@ case "$TARGET" in
     done ;;
   segmenter-eval)
     need_var SBATCH_ACCOUNT; need_var SBATCH_PARTITION
-    need_dir SEG4D_REPO; need_dir SEG_EVAL_ROOT; need_dir VGGT_OMEGA_ROOT; need_file VGGT_OMEGA_CKPT
+    need_dir SEG4D_REPO; need_dir SEG_EVAL_ROOT; need_file VGGT_OMEGA_CKPT
     need_dir CONDA_ROOT; need_file CONTAINER_IMAGE; need_file MODEL_CKPT ;;
   *)
     echo "Usage: $0 {teacher|s4vy|s4vy_prompt|s4vy_joint|segmenter-eval}" >&2

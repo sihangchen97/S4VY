@@ -18,7 +18,7 @@ that silently injects something slightly different is exactly the failure this e
 import os
 
 # vLLM V1 spawns EngineCore as a SEPARATE process, and spawn re-executes the parent script through runpy as
-# __main__ -- so the child re-runs grounder_infer.py with a sys.path that lacks VGGT_OMEGA_ROOT and dies on
+# __main__ -- so the child re-runs grounder_infer.py with a sys.path that lacks the repo dirs and dies on
 # `No module named 'eval.eval_instance_seg'`. In-process EngineCore removes the child entirely; we drive one
 # GPU per process anyway, so the separate process buys nothing here. Must be set before vllm is imported.
 os.environ.setdefault("VLLM_ENABLE_V1_MULTIPROCESSING", "0")

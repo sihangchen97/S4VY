@@ -36,7 +36,7 @@ export QWEN3_VL_2B="/path/to/hf_models/Qwen3-VL-2B-Instruct"
 export QWEN3_VL_4B="/path/to/hf_models/Qwen3-VL-4B-Instruct"
 
 # --- frozen segmenter pair used by both grounding arms ----------------------
-export VGGT_OMEGA_ROOT="/path/to/vggt-omega"
+# vggt_omega is pip-installed (see pyproject.toml); only its backbone ckpt is a path here.
 export VGGT_OMEGA_CKPT="/path/to/checkpoints/VGGT-Omega/vggt_omega_1b_512.pt"
 export S4VY_CKPT="/path/to/checkpoints/seg4d/s4vy/segomega_final.pt"
 # Report/e2e protocol uses this selected checkpoint, not prompt_final.pt.

@@ -14,10 +14,6 @@ Missing modalities are simply omitted (consumers guard per-key).
 """
 from __future__ import annotations
 
-import os, sys
-_VG = os.environ.get("VGGT_OMEGA_ROOT", "/PATH/TO/codebase/vggt-omega")
-if _VG not in sys.path: sys.path.insert(0, _VG)
-
 import glob
 
 import numpy as np

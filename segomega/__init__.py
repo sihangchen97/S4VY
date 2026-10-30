@@ -16,6 +16,6 @@ References folded in:
   - IGGT data + multi-view-consistent instance ids + geometry losses: codebase/IGGT_official
 """
 
-from .paths import VGGT_OMEGA_ROOT, ensure_vggt_omega_on_path  # noqa: F401
+from .paths import VGGT_OMEGA_CKPT  # noqa: F401
 
-__all__ = ["VGGT_OMEGA_ROOT", "ensure_vggt_omega_on_path"]
+__all__ = ["VGGT_OMEGA_CKPT"]

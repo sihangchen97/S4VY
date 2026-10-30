@@ -9,7 +9,7 @@
 # Joint exhaustive + prompt training. 8-node chain (CHAIN_MODE=dep for a single-successor chain).
 # RUN: source env.sh && sbatch --nodes=8 scripts/train_s4vy_joint.sbatch
 set -u
-: "${SEG4D_REPO:?source env.sh first}" "${CKPT_ROOT:?}" "${DATA_ROOT:?}" "${VGGT_OMEGA_ROOT:?}" "${VGGT_OMEGA_CKPT:?}" "${PROMPT_PSEUDO_ROOT:?}"
+: "${SEG4D_REPO:?source env.sh first}" "${CKPT_ROOT:?}" "${DATA_ROOT:?}" "${VGGT_OMEGA_CKPT:?}" "${PROMPT_PSEUDO_ROOT:?}"
 : "${CONDA_ROOT:?}" "${CONDA_ENV:?}" "${CONTAINER_IMAGE:?}" "${CONTAINER_MOUNTS:?}"
 REPO="$SEG4D_REPO"
 CKDIR="$CKPT_ROOT/s4vy_joint"
@@ -47,7 +47,7 @@ srun --container-image="$CONTAINER_IMAGE" --container-mounts="$CONTAINER_MOUNTS"
   bash -lc "
     source $CONDA_ROOT/etc/profile.d/conda.sh; conda activate $CONDA_ENV
     export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True OMP_NUM_THREADS=8 NCCL_ASYNC_ERROR_HANDLING=1
-    export VGGT_OMEGA_ROOT=$VGGT_OMEGA_ROOT VGGT_OMEGA_CKPT=$VGGT_OMEGA_CKPT
+    export VGGT_OMEGA_CKPT=$VGGT_OMEGA_CKPT
     export SEG_NO_FRAMEPOS=1     # no decoder frame_pos (match s4vy)
     export WANDB_RUN_ID=s4vy_joint WANDB_MODE=offline WANDB_DIR=$CKDIR/wandb
     cd $REPO

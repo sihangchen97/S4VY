@@ -10,7 +10,7 @@
 # RUN: source env.sh && sbatch --nodes=8 scripts/train_teacher.sbatch
 # (account/partition from SBATCH_ACCOUNT/PARTITION in env.sh; paths inherited via --export=ALL.)
 set -u
-: "${SEG4D_REPO:?source env.sh first}" "${CKPT_ROOT:?}" "${DATA_ROOT:?}" "${VGGT_OMEGA_ROOT:?}" "${VGGT_OMEGA_CKPT:?}"
+: "${SEG4D_REPO:?source env.sh first}" "${CKPT_ROOT:?}" "${DATA_ROOT:?}" "${VGGT_OMEGA_CKPT:?}"
 : "${CONDA_ROOT:?}" "${CONDA_ENV:?}" "${CONTAINER_IMAGE:?}" "${CONTAINER_MOUNTS:?}"
 REPO="$SEG4D_REPO"
 CKDIR="$CKPT_ROOT/teacher"
@@ -25,7 +25,7 @@ srun --container-image="$CONTAINER_IMAGE" --container-mounts="$CONTAINER_MOUNTS"
   bash -lc "
     source $CONDA_ROOT/etc/profile.d/conda.sh; conda activate $CONDA_ENV
     export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True OMP_NUM_THREADS=8 NCCL_ASYNC_ERROR_HANDLING=1
-    export VGGT_OMEGA_ROOT=$VGGT_OMEGA_ROOT VGGT_OMEGA_CKPT=$VGGT_OMEGA_CKPT
+    export VGGT_OMEGA_CKPT=$VGGT_OMEGA_CKPT
     export WANDB_RUN_ID=teacher WANDB_MODE=offline WANDB_DIR=$CKDIR/wandb
     cd $REPO
     torchrun --nnodes=$SLURM_NNODES --nproc_per_node=8 --node_rank=\$SLURM_NODEID \

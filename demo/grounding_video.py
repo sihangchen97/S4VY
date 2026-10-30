@@ -17,7 +17,7 @@ Usage:
   python demo/grounding_video.py --video clip.mp4 --expr "the person in red" --out out/clip \
          --base /path/to/Qwen3-VL-4B-Instruct
 
-Env expected by the imported grounding code: VGGT_OMEGA_ROOT, VGGT_OMEGA_CKPT.
+Env expected by the imported grounding code: VGGT_OMEGA_CKPT (vggt_omega is pip-installed).
 """
 import os, sys, argparse
 # fixed grounding regime (same switches as run_pipeline_video.py)

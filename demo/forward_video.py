@@ -11,7 +11,7 @@ Outputs (under --out):
   <name>_overlay.mp4      RGB + guided-filter mask overlay
   masks/frame_XXXX.png    per-frame instance id map (uint16; 0 = background)
 
-Requires VGGT_OMEGA_ROOT to point at the VGGT-Omega code repo (see segomega/paths.py).
+Requires vggt_omega to be pip-installed (declared in pyproject.toml / pixi).
 """
 import os, sys, argparse
 os.environ.setdefault("SEG_NO_FRAMEPOS", "1")           # weights were trained with decoder frame_pos dropped

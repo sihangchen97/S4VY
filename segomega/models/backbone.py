@@ -18,10 +18,9 @@ from typing import Optional
 import torch
 import torch.nn as nn
 
-from ..paths import VGGT_OMEGA_CKPT, ensure_vggt_omega_on_path
+from ..paths import VGGT_OMEGA_CKPT
 
-ensure_vggt_omega_on_path()
-from vggt_omega.models.vggt_omega import VGGTOmega  # noqa: E402
+from vggt_omega.models.vggt_omega import VGGTOmega
 
 # Layers whose tokens the aggregator caches (everything else is None in the returned list).
 CACHED_LAYER_IDX = [4, 11, 17, 23]

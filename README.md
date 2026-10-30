@@ -54,8 +54,9 @@ cp grounding/env.example.sh grounding/env.sh && $EDITOR grounding/env.sh
 
 [VGGT-Ω](https://github.com/facebookresearch/vggt-omega) (Wang et al.,
 [arXiv:2605.15195](https://arxiv.org/abs/2605.15195)) is a separate upstream dependency and is not
-redistributed here. Obtain it and accept its licence before training or inference, and point
-`VGGT_OMEGA_ROOT` at the checkout.
+redistributed here. Obtain it and accept its licence before training or inference; the
+`vggt-omega` package is a declared dependency (`pyproject.toml`, editable via `pixi`), and only
+the backbone weights are path-configured through `VGGT_OMEGA_CKPT`.
 
 ## Weights
 

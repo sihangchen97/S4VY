@@ -1,0 +1,32 @@
+[project]
+name = "s4vy"
+version = "0.1.0"
+description = "S4VY: promptable 4D instance segmentation on the VGGT-Omega backbone (segmenter package 'segomega')."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+    "vggt-omega",
+    "numpy",
+    "scipy",
+    "Pillow",
+    "einops",
+    "opencv-python",
+    "PyYAML",
+    "imageio",
+    "tqdm",
+    "pycocotools",
+    "matplotlib",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+train = ["wandb"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["segomega*"]

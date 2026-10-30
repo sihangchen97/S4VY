@@ -19,7 +19,6 @@ SCORE_THR = float(os.environ.get("SCORE_THR", "0.3"))
 
 def build_omega():
     sys.path.insert(0, os.environ.get("SEG4D_REPO", os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-    sys.path.insert(0, _env.require("VGGT_OMEGA_ROOT", "VGGT-Omega code checkout"))
     from segomega.models import SegOmega, inject_lora, set_lora_enabled
     m = SegOmega(ckpt_path=_env.require("VGGT_OMEGA_CKPT", "VGGT-Omega backbone weights"), num_queries=400, num_dec_layers=9,
                  mask_dim=256, dec_dim=256, supervise_depth=True, supervise_camera=True,

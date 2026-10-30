@@ -21,5 +21,6 @@ matplotlib
 #   AnyUp   -> import path `anyup.model`
 #   UPLiFT  -> import path `uplift.uplift`  (also needs `omegaconf`)
 #
-# NOTE: the VGGT-Omega backbone is an EXTERNAL dependency (not pip-installed) —
-# clone it separately and set VGGT_OMEGA_ROOT (see README and env.example.sh).
+# NOTE: the VGGT-Omega backbone is an EXTERNAL dependency, installed as the
+# pip package `vggt-omega` (declared in pyproject.toml). Only its backbone
+# weights are path-configured via VGGT_OMEGA_CKPT (see README and env.example.sh).

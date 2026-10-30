@@ -13,11 +13,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint
 
-from ..paths import ensure_vggt_omega_on_path
-
-ensure_vggt_omega_on_path()
 # Reuse the exact DPT building blocks from the released backbone.
-from vggt_omega.models.heads.dense_head import (  # noqa: E402
+from vggt_omega.models.heads.dense_head import (
     _make_dense_resize_layer,
     _make_fusion_block,
     _make_scratch,

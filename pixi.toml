@@ -1,0 +1,42 @@
+[workspace]
+authors = ["sihang <sihangchen97@outlook.com>"]
+channels = ["conda-forge"]
+name = "S4VY"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+
+[feature.penv.dependencies]
+python = "3.11.*"
+cuda-toolkit = "13.0.*"
+
+[feature.penv.activation.env]
+CUDA_HOME = "$CONDA_PREFIX"
+PIXI_PT_VERSION = "2.11.0"
+PIXI_PT_TAG = "2110"
+PIXI_CU_VERSION = "13.0"
+PIXI_CU_TAG = "130"
+PIXI_PY_VERSION = "3.11"
+PIXI_PY_TAG = "311"
+
+[feature.penv.pypi-options]
+extra-index-urls = [
+    "https://download.pytorch.org/whl/cu130",
+]
+
+[feature.penv.pypi-dependencies]
+torch = "==2.11.0"
+torchvision = "*"
+torchaudio = "*"
+
+[feature.custom.dependencies]
+
+[feature.custom.pypi-dependencies]
+vggt-omega = {path = "../vggt-omega", editable = true}
+s4vy = {path = ".", editable = true}
+
+[environments]
+default = {features = ["penv", "custom"]}

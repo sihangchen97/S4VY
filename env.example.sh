@@ -19,9 +19,9 @@ export CONDA_ENV="seg4d"                                   # conda env name (see
 export CONTAINER_IMAGE="/path/to/pytorch_24.10_py3.sqsh"   # enroot/pyxis image (or "" to run bare)
 export CONTAINER_MOUNTS="/data:/data"                  # srun --container-mounts (host:container)
 
-# --- VGGT-Omega backbone (EXTERNAL upstream dependency) ----------------------
-# Clone the released VGGT-Omega repo separately and point these at it.
-export VGGT_OMEGA_ROOT="/path/to/vggt-omega"                       # the VGGT-Omega code repo
+# --- VGGT-Omega backbone checkpoint ------------------------------------------
+# The vggt_omega code is a pip-installed dependency (pyproject.toml / pixi),
+# only the backbone weights are path-configured here.
 export VGGT_OMEGA_CKPT="/path/to/VGGT-Omega/vggt_omega_1b_512.pt"  # 1B/512px backbone checkpoint
 
 # --- Data + checkpoint output roots ------------------------------------------

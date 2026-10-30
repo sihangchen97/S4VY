@@ -50,7 +50,6 @@ common_train() {
 common_eval() {
   common_base
   need_var GROUNDING_EVAL_PARTITIONS
-  need_dir VGGT_OMEGA_ROOT
   need_file VGGT_OMEGA_CKPT
   need_file S4VY_CKPT
   need_file S4VY_PROMPT_CKPT
